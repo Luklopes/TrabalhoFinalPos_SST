@@ -3,20 +3,18 @@ let apiRouter = express.Router()
 
 const endpoint = '/'
 
-const lista_produtos = {
-produtos: [
-{ id: 1, descricao: "Produto 1", valor: 5.00, marca: "marca " },
-{ id: 2, descricao: "Produto 2", valor: 5.00, marca: "marca " },
-{ id: 3, descricao: "Produto 3", valor: 5.00, marca: "marca " },
-]
-}
+const knex = require('knex')({
+    client:'pg',
+    connection: process.env.DATABASE_URL
+});
 
-apiRouter.get (endpoint + 'produtos', (req, res) => {
-    res.status(200).json (lista_produtos)
+
+apiRouter.get (endpoint + 'produtos', (req, res) => {   
+        knex
+        .select('*')
+        .from('produto')
+        .then( produtos => res.status(200).json(produtos));
+    
 })
-
-
-
-
 
 module.exports = apiRouter;
