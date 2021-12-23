@@ -1,1 +1,7 @@
 body {background-color: yellow;}
+
+#permission-error{
+    display: none;
+    font-size: 30px;
+    color: #000
+}
