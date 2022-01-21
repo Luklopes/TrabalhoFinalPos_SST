@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use ('/', express.static (path.join (__dirname, '/views/login')));
 app.use ('/app', express.static (path.join (__dirname, '/public')));
+app.use ('/products', express.static (path.join (__dirname, '/views/products')));
+app.use ('/products/:id', express.static (path.join (__dirname, '/views/products')));
+
 
 app.use ('/api', apiRouter);
 

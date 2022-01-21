@@ -1,0 +1,23 @@
+.login{
+    margin: 20% auto auto auto;
+    width: 30%;       
+    padding: 10px;
+}
+
+.login-button{
+    float: right;
+    margin-top: 12px;
+    width: 20%;
+}
+
+#permission-error{
+    display: none;
+    color: #ff0000;  
+}
+
+
+#sucess-register{
+    display: none;
+    color: #008000;
+  
+}
