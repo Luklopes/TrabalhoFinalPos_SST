@@ -1,4 +1,3 @@
-
 function mountForm(index) {
     console.log("entrou")
     let id = index
@@ -30,11 +29,14 @@ function redirectMenu(value) {
     let val = value
     console.log("val", val)
     switch (val) {
-        case 1: window.location = '/app'
+        case 1:
+            window.location = '/app'
             break
-        case 2: window.location = '/app'
+        case 2:
+            window.location = '/app'
             break
-        case 3: window.location = '/products'
+        case 3:
+            window.location = '/products'
             break
         default:
     }
@@ -42,9 +44,7 @@ function redirectMenu(value) {
 
 //------------------------------------------------Delete----------------------------------------------------------------------------//
 function deleteItem(index) {
-    console.log("entrou2")
     let id = index
-    console.log("id", id)
     let confirmation = this.confirmAction('excluir');
 
     if (confirmation) {
@@ -96,16 +96,16 @@ function init() {
         }
 
         let redirect = document.getElementById('cadastros')
-        redirect.addEventListener("click", function () {
+        redirect.addEventListener("click", function() {
             console.log("eitaaa")
             window.location = '/products'
         }, false);
 
 
         fetch('/api/produtos', {
-            method: "GET",
-            headers: headersList
-        }).then(res => res.json())
+                method: "GET",
+                headers: headersList
+            }).then(res => res.json())
             .then((produtos => {
                 produtos.forEach(element => {
                     let newLine = `<tr>
@@ -137,19 +137,18 @@ function init() {
 
 
     // isso alternará todos os itens do menu ao mesmo tempo
-    toggleAll = function () {
+    toggleAll = function() {
         if (!menuWrapper.hasClass('toggled')) {
             //  escolhe o elemento mais longo em largura e dimensiona o div em torno dele para esse tamanho
             var width = 0;
-            menuItems.each(function () {
+            menuItems.each(function() {
                 var thisWidth = $(this).width();
                 if (thisWidth > width) {
                     width = thisWidth;
                 }
             });
             width = width + 100;
-        }
-        else {
+        } else {
             var width = 100;
         }
         menuWrapper.animate({ width: width }, sizeSpeed);
@@ -164,15 +163,14 @@ function init() {
     }
 
     // quando os ícones são clicados, um será aberto, o outro será fechado.
-    singleClicked = function () {
+    singleClicked = function() {
         if (!menuWrapper.hasClass('toggled')) {
 
             //    faz com que o wrapper tenha a mesma largura do novo item clicado.
             if (!$('a', $(this)).hasClass('clicktoggled')) {
                 var newLength = $('a', $(this)).width();
                 var newWidth = newLength + 100;
-            }
-            else {
+            } else {
                 var newWidth = 100;
             }
             menuWrapper.animate({ width: newWidth }, sizeSpeed);
@@ -181,14 +179,14 @@ function init() {
             $('a', $(this))
                 .animate({ opacity: 'toggle' }, tekstSpeed)
                 .toggleClass('clicktoggled');
-            $('a.clicktoggled', listItem.not(this)).each(function () {
+            $('a.clicktoggled', listItem.not(this)).each(function() {
                 $(this)
                     .removeClass('clicktoggled')
                     .animate({ opacity: 'toggle' }, tekstSpeed);
             });
             $((this))
                 .toggleClass('listActive');
-            listItem.not(this).each(function () {
+            listItem.not(this).each(function() {
                 $(this)
                     .removeClass('listActive')
             });
@@ -197,17 +195,17 @@ function init() {
 
 
     //  ativar funções
-    setTimeout(function () { toggleAll(); }, 1000);
+    setTimeout(function() { toggleAll(); }, 1000);
     menuButton.click(toggleAll);
     listItem.click(singleClicked);
-    $(document).keyup(function (e) {
+    $(document).keyup(function(e) {
         if (e.keyCode == 27) { // escape key maps to keycode `27`
             if (menuWrapper.hasClass('toggled')) {
                 toggleAll();
             }
         }
     });
-    $('.content').click(function () {
+    $('.content').click(function() {
         if (menuWrapper.hasClass('toggled')) {
             toggleAll();
         }
