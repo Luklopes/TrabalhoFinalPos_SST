@@ -11,23 +11,23 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"
 </head>
 
-<body>
+<body class="body-cadastro">
     <form id="login" onsubmit="createProduct()">
-        <div class="login">
+        <div class="cadastro">
             <h4>Cadastro de produto</h4>
-            <div class="mb-3 row">
+            <div class="mb-3 mt-4 row">
                 <label for="inputUser" class="col-sm-2 col-form-label">Descrição</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="productDescription" required>
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-3 mt-4 row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Marca</label>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="productBrand" required>
                 </div>
 
-                <label for="inputPassword" class="col-sm-1 col-form-label">Valor</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Valor</label>
                 <div class="col-sm-4">
                     <input type="number" class="form-control" id="productValue" required>
                 </div>
@@ -35,7 +35,7 @@
            
             <div id="permission-error"></div>
             <div id="sucess-register"></div>
-            <button type="submit" id="submitButton" class="btn btn-primary login-button" >Cadastrar</button>
+            <button type="submit" id="submitButton" class="btn btn-primary cadastro-button" >Cadastrar</button>
         </div>
     </form>
 
